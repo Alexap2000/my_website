@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <script>
+        let min = +(prompt("Введіть мінімальне число:"));
+        let max = +(prompt("Введіть максимальне число:"));
+        if (min > max) [min, max] = [max, min];
+
+        let secretNumber = Math.floor(Math.random() * (max - min + 1)) + min;
+        let attempts = 10;
+        if (isNaN(min) || isNaN(max)) {
+            alert(`Це не число. Ви ввели ${min}, ${max}. Будь ласка, оновіть сторінку і зіграйте знову.`)
+        } else if(min === undefined){
+            alert(`Ви вводите неправильні дані або відмініли. Ви ввели ${min}, ${max}. Будь ласка, оновіть сторінку і зіграйте знову.`)
+        } else if(max === undefined){
+            alert(`Ви вводите неправильні дані або відмініли. Ви ввели ${min}, ${max}. Будь ласка, оновіть сторінку і зіграйте знову.`)
+        } else if(min === null){
+            alert(`Ви вводите неправильні дані або відмініли. Ви ввели ${min}, ${max}. Будь ласка, оновіть сторінку і зіграйте знову.`)
+        } else if(max === null){
+           alert(`Ви вводите неправильні дані або відмініли. Ви ввели ${min}, ${max}. Будь ласка, оновіть сторінку і зіграйте знову.`) 
+        }
+        else {
+            alert(`Загадане число в діапазоні від ${min} до ${max}. У вас є ${attempts} спроб.`);
+            for (let i = 0; i <= attempts; i++) {
+                let userGuess = parseInt(prompt(`Спроба ${i + 1}: Введіть число:`));
+                if (userGuess === secretNumber) {
+                    alert("Вітаємо! Ви вгадали число!");
+                    break;
+                } else if (userGuess > secretNumber) {
+                    alert("Загадане число менше.");
+                } else if (userGuess < secretNumber) {
+                    alert("Загадане число більше.");
+                } else if (i === attempts) {
+                    alert(`Ви вичерпали спроби. Загадане число було ${secretNumber}. Хай щастить наступного разу!`);
+                } else{
+                    alert("Щось пішло не так. Оновіть сторінку і зіграйте знову.")
+                }
+            }
+        }
+
+        let num1 = Math.floor(Math.random() * (99 - 10 + 1)) + 10;
+        let num2 = Math.floor(Math.random() * (99 - 10 + 1)) + 10;
+        if (num1 > num2) [num1, num2] = [num2, num1];
+
+        let extraNum1 = Math.floor(Math.random() * (num2 - num1 + 1)) + num1;
+        let extraNum2 = Math.floor(Math.random() * (num2 - num1 + 1)) + num1;
+        let extraNum3 = Math.floor(Math.random() * (num2 - num1 + 1)) + num1;
+
+        alert(`Два випадкових числа: ${num1}, ${num2}`);
+        alert(`Три випадкових числа в цьому діапазоні: ${extraNum1}, ${extraNum2}, ${extraNum3}`);
+
+    </script>
+</body>
+
+</html>

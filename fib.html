@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+    function fibonacci(n) {
+    let a = 0, b = 1;
+    let fibonacciSequence = '';
+
+    // Input validation
+    if (typeof n !== 'number' || isNaN(n) || n <= 0) {
+        alert("Please enter a valid positive integer. Try again");
+        return;
+    }
+
+    for (let i = 0; i < n; i++) {
+        if (i === n - 1) {
+                fibonacciSequence += a + "."; // Last number ends with a dot
+            } else {
+                fibonacciSequence += a + ", "; // Others end with a comma
+            }
+        let temp = a;
+        a = b;
+        b = temp + b;
+    }
+    alert(fibonacciSequence);
+}
+
+// Example usage: Get user input for the number of Fibonacci terms
+let input = prompt("Enter how many Fibonacci numbers to return:");
+
+// Convert input to a number
+let num = parseInt(input);
+
+// Call the fibonacci function
+fibonacci(num);
+
+    </script>
+</body>
+</html>

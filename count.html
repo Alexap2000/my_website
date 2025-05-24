@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        // Запитуємо число
+let n = parseInt(prompt("Введіть ціле число:"));
+
+// Перевіряємо, чи введене значення є числом
+if (!isNaN(n)) {
+    // Обчислюємо кількість цифр
+    let digitsCount = Math.abs(n).toString().length;
+
+    // Рахуємо парні та непарні цифри
+    let even = 0, odd = 0;
+    let digitsArray = Math.abs(n).toString().split("");
+    for (let i = 0; i < digitsArray.length; i++) {
+        let digit = parseInt(digitsArray[i]);
+        if (digit % 2 === 0) {
+            even++;
+        } else {
+            odd++;
+        }
+    }
+
+    // Рахуємо суму цифр
+    let digitsSum = digitsArray.reduce((sum, digit) => sum + parseInt(digit), 0);
+
+    // Визначаємо правильне закінчення для слова "цифра"
+    let wordForm;
+    if (digitsCount % 10 === 1 && digitsCount % 100 !== 11) {
+        wordForm = "цифра";
+    } else if ([2, 3, 4].includes(digitsCount % 10) && !(digitsCount % 100 >= 11 && digitsCount % 100 <= 14)) {
+        wordForm = "цифри";
+    } else {
+        wordForm = "цифр";
+    }
+
+    // Виводимо результат
+    document.write(`Кількість цифр у числі: ${digitsCount} ${wordForm}<br>`);
+    document.write(`Кількість парних цифр: ${even}<br>`);
+    document.write(`Кількість непарних цифр: ${odd}<br>`);
+    document.write(`Цифри числа: ${digitsArray.join(" ")}<br>`);
+    document.write(`Сума цифр числа: ${digitsSum}<br>`);
+} else {
+    document.write("Помилка! Введене значення не є числом.");
+}
+
+    </script>
+</body>
+</html>

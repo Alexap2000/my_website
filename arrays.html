@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=<device-width>, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+      p{
+        font-family: Arial, Helvetica, sans-serif;
+        font-size: 60px;
+      }
+    </style>
+</head>
+
+<body>
+    <script>
+        let colors = ["Yellow", "Blue"];
+        console.log(colors)
+        colors.push("Red");
+        console.log(colors)
+        let redIndex = colors.indexOf("Blue");
+        if (redIndex !== -1) {
+            colors[redIndex] = "Black";
+        }
+        console.log(colors)
+        colors.shift();
+        console.log(colors);
+        colors.unshift("Green", "Orange");
+        console.log(colors);
+        let emotions = [ 
+  "joyful", "compassionate", "brave", "hopeful", "kind", 
+  "grateful", "peaceful", "resilient", "optimistic", "generous",
+  "patient", "loving", "enthusiastic", "creative", "forgiving"
+];
+
+let animals = [ 
+  "lion", "dolphin", "eagle", "elephant", "owl",
+  "butterfly", "fox", "panda", "horse", "koala",
+  "wolf", "penguin", "tiger", "hummingbird", "otter"
+];
+
+function getArticle(word) {
+  return /^[aeiou]/i.test(word) ? "an" : "a";
+}
+
+let combinations = [];
+for (let emotion of emotions) {
+  for (let animal of animals) {
+    combinations.push(`You are as ${emotion} as a ${animal}.`);
+  }
+}
+for (let i = combinations.length - 1; i > 0; i--) {
+  const j = Math.floor(Math.random() * (i + 1));
+  [combinations[i], combinations[j]] = [combinations[j], combinations[i]];
+}
+
+let count = parseInt(prompt("How many compliments would you like?")); 
+
+if (!isNaN(count) && count > 0) {
+  for (let i = 0; i < Math.min(count, combinations.length); i++) {
+    document.write(combinations[i] + "<br>");
+  }
+} else {
+  alert("Please enter a valid number greater than 0."); 
+}
+
+    </script>
+</body>
+
+</html>

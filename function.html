@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <script>
+        function findAllOccurrences(text, search) {
+            let positions = [];
+            let pos = text.indexOf(search);
+            while (pos !== -1) {
+                positions.push(pos);
+                pos = text.indexOf(search, pos + 1);
+            }
+            return positions;
+        }
+
+        let text = "бредуть бобри в сирі бори. бобри хоробрі, а для бобрят добрі";
+        let search = "ри";
+        document.writeln(findAllOccurrences(text, search));
+    </script>
+</body>
+
+</html>

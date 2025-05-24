@@ -1,0 +1,177 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        body {
+            background: linear-gradient(to bottom, #1e1e2f, #2c3e50);
+            margin: 0;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            flex-direction: column;
+        }
+
+        .title {
+            color: white;
+            font-family: Arial, sans-serif;
+            margin-bottom: 20px;
+            text-align: center;
+        }
+
+        .buttons-container {
+            display: flex;
+            gap: 15px;
+        }
+
+        .button-56 {
+            align-items: center;
+            background-color: #fee6e3;
+            border: 2px solid #111;
+            border-radius: 8px;
+            box-sizing: border-box;
+            color: #111;
+            cursor: pointer;
+            display: flex;
+            font-family: Inter, sans-serif;
+            font-size: 16px;
+            height: 48px;
+            justify-content: center;
+            line-height: 24px;
+            max-width: 100%;
+            padding: 0 25px;
+            position: relative;
+            text-align: center;
+            text-decoration: none;
+            user-select: none;
+            -webkit-user-select: none;
+            touch-action: manipulation;
+        }
+
+        .button-56:after {
+            background-color: #111;
+            border-radius: 8px;
+            content: "";
+            display: block;
+            height: 48px;
+            left: 0;
+            width: 100%;
+            position: absolute;
+            top: -2px;
+            transform: translate(8px, 8px);
+            transition: transform .2s ease-out;
+            z-index: -1;
+        }
+
+        .button-56:hover:after {
+            transform: translate(0, 0);
+        }
+
+        .button-56:active {
+            background-color: #ffdeda;
+            outline: 0;
+        }
+
+        .button-56:hover {
+            outline: 0;
+        }
+
+        @media (min-width: 768px) {
+            .button-56 {
+                padding: 0 40px;
+            }
+        }
+
+        img {
+            width: 40%;
+            height:20%
+        }
+
+        .info {
+            width: 40%;
+            float: left;
+            margin-left: 50px
+        }
+
+        .container {
+            width: 100%;
+        }
+
+        .info_text {
+            color: white;
+            font-family: Arial, Helvetica, sans-serif;
+            font-size: 40px;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="container">
+        <h1 class="title">Final work of Oleksandr Pelykh</h1>
+        <div class="info">
+            <img src="my photo.jpg" alt="My photo">
+        </div>
+        <div class="info">
+            <p class="info_text">Hello, I'm Oleksandr Pelykh, and I'm 14 years old. I like to play computer games, riding public transport, and a bit of programming. I was born and I live in Kyiv. I studied many programming languages like JavaScript, HTML, CSS, Python and C#.</p>
+        </div>
+    </div>
+    <h1 class="title">My works</h1>
+    <div class="buttons-container">
+        <button class="button-56" id="fibonacci_button" role="button">Fibonacci</button>
+        <button class="button-56" id="power_button" role="button">Powers and alphabet</button>
+        <button class="button-56" id="number_guess_button" role="button">Number guesser</button>
+        <button class="button-56" id="array_button" role="button">Compliments and arrays</button>
+        <button class="button-56" id="hello_button" role="button">Recursive function that prints hello</button>
+        <button class="button-56" id="count_button" role="button">Count</button>
+        <button class="button-56" id="dizzy_button" role="button">Hello world (just don't click it)</button>
+        <button class="button-56" id="figures_button" role="button">Figures spinning</button>
+        <button class="button-56" id="pattern_button" role="button">Circle pattern</button>
+    </div>
+    <script>
+        const fibonacci_button = document.getElementById("fibonacci_button");
+        fibonacci_button.addEventListener("click", function () {
+            window.location.href = "fib.html", "_blank";
+        });
+        const power_button = document.getElementById("power_button");
+        power_button.addEventListener("click", function () {
+            window.location.href = "power.html", "_blank";
+        });
+        const number_guess_button = document.getElementById("number_guess_button");
+        number_guess_button.addEventListener("click", function () {
+            window.location.href = "min max.html", "_blank";
+        });
+        const array_button = document.getElementById("array_button");
+        array_button.addEventListener("click", function () {
+            window.location.href = "arrays.html", "_blank";
+        });
+        const hello_button = document.getElementById("hello_button");
+        hello_button.addEventListener("click", function () {
+            window.location.href = "hello.html", "_blank";
+        });
+        const count_button = document.getElementById("count_button");
+        count_button.addEventListener("click", function () {
+            window.location.href = "count.html", "_blank";
+        });
+
+        const dizzy_button = document.getElementById("dizzy_button");
+        dizzy_button.addEventListener("click", function () {
+            window.location.href = "spinning newspaper.html", "_blank";
+        });
+
+        const figure_button = document.getElementById("figures_button");
+        figure_button.addEventListener("click", function () {
+            window.location.href = "circletrianglesquare.html", "_blank";
+        });
+
+        const pattern_button = document.getElementById("pattern_button");
+        pattern_button.addEventListener("click", function () {
+            window.location.href = "pattern.html", "_blank";
+        });
+    </script>
+</body>
+
+</html>

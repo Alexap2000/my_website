@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        html,
+        body {
+            height: 100%;
+        }
+
+        body {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            background-color: black;
+        }
+
+        .newspaper {
+            padding: 400rem;
+            font-size: 500px;
+            text-transform: uppercase;
+            text-align: center;
+            background-color: white;
+            cursor: pointer;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="newspaper">Hello<br />world</div>
+    <script>
+        const newspaperSpinning = [
+            { transform: "rotate(0) scale(1)" },
+            { transform: "rotate(360deg) scale(0)" },
+        ];
+
+        const newspaperTiming = {
+            duration: 500,
+            iterations: 10000000000,
+        };
+
+        const newspaper = document.querySelector(".newspaper");
+
+        newspaper.addEventListener("click", () => {
+            newspaper.animate(newspaperSpinning, newspaperTiming);
+        });
+    </script>
+</body>
+
+</html>

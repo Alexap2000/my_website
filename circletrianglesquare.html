@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <canvas id="circleAnimationCanvas" width="400" height="400"></canvas>
+    <script>
+        const canvas = document.getElementById("circleAnimationCanvas");
+        const ctx = canvas.getContext("2d");
+
+        const centerX = canvas.width / 2;
+        const centerY = canvas.height / 2;
+        const orbitRadius = 150;
+        const objectRadius = 20;
+        const radius = 100;
+        const width = 50;
+        const height = 50;
+
+        let angle = 0;
+
+        function drawObject(x, y) {
+            // Draw blue circle
+            ctx.beginPath();
+            ctx.arc(x-22, y-22, objectRadius, 0, Math.PI * 2, false);
+            ctx.fillStyle = "blue";
+            ctx.fill();
+            ctx.closePath();
+        }
+
+        function drawTriangle(x, y) {
+            // Draw green triangle
+            ctx.beginPath();
+            ctx.moveTo(x, y - 20); // Top of triangle
+            ctx.lineTo(x - 20, y + 20); // Bottom-left
+            ctx.lineTo(x + 20, y + 20); // Bottom-right
+            ctx.closePath();
+            ctx.fillStyle = "green";
+            ctx.fill();
+        }
+
+        function animate() {
+  
+            ctx.clearRect(0, 0, canvas.width, canvas.height);
+
+
+            const x = centerX + orbitRadius * Math.cos(angle);
+            const y = centerY + orbitRadius * Math.sin(angle);
+
+  
+            drawObject(x, y);
+
+
+            const rectX = centerX + radius * Math.cos(angle);
+            const rectY = centerY + radius * Math.sin(angle);
+
+
+            ctx.beginPath();
+            ctx.rect(rectX - width / 2, rectY - height / 2, width, height);
+            ctx.fillStyle = "red";
+            ctx.fill();
+
+            const triX = centerX + (radius + 50) * Math.cos(angle);
+            const triY = centerY + (radius + 50) * Math.sin(angle);
+
+            drawTriangle(triX, triY);
+
+            angle += 0.05;
+
+            if (angle >= 2 * Math.PI) {
+                angle = 0;
+            }
+
+            requestAnimationFrame(animate);
+        }
+
+        animate();
+    </script>
+</body>
+
+</html>
