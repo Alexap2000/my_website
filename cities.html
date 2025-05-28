@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <title>World Capitals Lookup</title>
+</head>
+<body>
+<script>
+  // Object with capital cities (uppercase) mapped to population and GDP (USD approx.)
+  const capitals = {
+    "KABUL": { population: "4.6 million", gdp: "NA" },
+    "TIRANA": { population: "421,286", gdp: "NA" },
+    "ALGIERS": { population: "3.9 million", gdp: "145 billion" },
+    "ANDORRA LA VELLA": { population: "22,256", gdp: "NA" },
+    "LUANDA": { population: "8 million", gdp: "124 billion" },
+    "BUENOS AIRES": { population: "15 million", gdp: "323 billion" },
+    "SYDNEY": { population: "5.3 million", gdp: "NA (not capital, but major city)" },
+    "VIENNA": { population: "1.9 million", gdp: "416 billion" },
+    "BRIDGETOWN": { population: "110,000", gdp: "NA" },
+    "BRUSSELS": { population: "1.2 million", gdp: "530 billion" },
+    "BELMOPAN": { population: "20,000", gdp: "NA" },
+    "OTTAWA": { population: "1 million", gdp: "80 billion" },
+    "SANTIAGO": { population: "6.8 million", gdp: "277 billion" },
+    "BEIJING": { population: "21 million", gdp: "480 billion" },
+    "BOGOTA": { population: "7.4 million", gdp: "324 billion" },
+    "BRAZZAVILLE": { population: "1.8 million", gdp: "NA" },
+    "ZAGREB": { population: "806,000", gdp: "NA" },
+    "HAVANA": { population: "2.1 million", gdp: "NA" },
+    "PRAGUE": { population: "1.3 million", gdp: "192 billion" },
+    "COPENHAGEN": { population: "794,000", gdp: "322 billion" },
+    "DJIBOUTI": { population: "623,000", gdp: "NA" },
+    "CAIRO": { population: "20 million", gdp: "140 billion" },
+    "MEXICO CITY": { population: "21.7 million", gdp: "600 billion" },
+    "AMSTERDAM": { population: "872,000", gdp: "342 billion" },
+    "ANKARA": { population: "5.2 million", gdp: "770 billion (Turkey total GDP)" },
+    "KUWAIT CITY": { population: "4.3 million", gdp: "110 billion" },
+    "ROME": { population: "2.8 million", gdp: "1.85 trillion (Italy)" },
+    "NEW DELHI": { population: "32 million", gdp: "293 billion" },
+    "JAKARTA": { population: "10 million", gdp: "200 billion" },
+    "NAIROBI": { population: "4.4 million", gdp: "95 billion" },
+    "SEOUL": { population: "9.7 million", gdp: "1.6 trillion" },
+    "KUALA LUMPUR": { population: "1.8 million", gdp: "336 billion" },
+    "LISBON": { population: "505,000", gdp: "250 billion" },
+    "LONDON": { population: "9 million", gdp: "801 billion" },
+    "MADRID": { population: "6.6 million", gdp: "1.4 trillion (Spain)" },
+    "PARIS": { population: "2.1 million", gdp: "850 billion" },
+    "BERLIN": { population: "3.6 million", gdp: "170 billion" },
+    "ROME": { population: "2.8 million", gdp: "1.85 trillion" },
+    "DUBLIN": { population: "1.4 million", gdp: "320 billion" },
+    "CAIRO": { population: "20 million", gdp: "140 billion" },
+    "BANGKOK": { population: "10.5 million", gdp: "545 billion" },
+    "WELLINGTON": { population: "215,000", gdp: "204 billion" },
+    "OSLO": { population: "697,000", gdp: "434 billion" },
+    "ABU DHABI": { population: "1.45 million", gdp: "NA" },
+    "WASHINGTON": { population: "705,749", gdp: "141 billion" },
+    "CARACAS": { population: "2 million", gdp: "NA" },
+    "VIENTIANE": { population: "820,000", gdp: "NA" },
+    "LUXEMBOURG": { population: "119,000", gdp: "71 billion" },
+    "MONACO": { population: "39,000", gdp: "NA" },
+    "SAN MARINO": { population: "4,000", gdp: "NA" },
+    "BRATISLAVA": { population: "430,000", gdp: "NA" },
+    "BUDAPEST": { population: "1.75 million", gdp: "NA" },
+    "KAMPALA": { population: "1.5 million", gdp: "NA" },
+    "ROME": { population: "2.8 million", gdp: "1.85 trillion" },
+    "SOFIA": { population: "1.2 million", gdp: "69 billion" },
+    "TEHRAN": { population: "8.7 million", gdp: "NA" },
+    "TOKYO": { population: "14 million", gdp: "2 trillion" },
+    "TUNIS": { population: "638,000", gdp: "NA" },
+    "KYIV": { population: "2.8 million", gdp: "81 billion" },
+    "ABUJA": { population: "3.6 million", gdp: "NA" },
+    "ZAGREB": { population: "806,000", gdp: "NA" },
+    "HARARE": { population: "1.5 million", gdp: "NA" }
+  };
+
+  // Normalize user input to uppercase and trim spaces
+  function normalizeInput(str) {
+    return str.trim().toUpperCase();
+  }
+
+  let cityNamesList = Object.keys(capitals).join(", ");
+
+  while (true) {
+    let input = prompt(`Enter the name of a capital city (ALL CAPS preferred for accuracy):\nAvailable capitals include:\n${cityNamesList}\n(Or cancel to exit)`);
+
+    if (input === null) {  // User pressed cancel
+      alert("Goodbye!");
+      break;
+    }
+
+    let city = normalizeInput(input);
+
+    if (capitals[city]) {
+      let data = capitals[city];
+      alert(`City: ${city}\nPopulation: ${data.population}\nGDP: ${data.gdp}`);
+    } else {
+      alert("City not found in the list. Please check spelling and try again.");
+    }
+  }
+</script>
+</body>
+</html>
