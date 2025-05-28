@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <title>Chess Board</title>
+  <style>
+    body {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      height: 100vh;
+      margin: 0;
+      background-color: #ddd;
+    }
+  </style>
+</head>
+<body>
+  <canvas id="chessboard" width="400" height="400"></canvas>
+
+  <script>
+    const canvas = document.getElementById('chessboard');
+    const ctx = canvas.getContext('2d');
+    const size = 8;
+    const squareSize = canvas.width / size;
+
+    // Draw the chessboard squares
+    for (let row = 0; row < size; row++) {
+      for (let col = 0; col < size; col++) {
+        // Alternate colors: if row + col is even, white; else black
+        if ((row + col) % 2 === 0) {
+          ctx.fillStyle = '#f0d9b5'; // light color
+        } else {
+          ctx.fillStyle = '#b58863'; // dark color
+        }
+        ctx.fillRect(col * squareSize, row * squareSize, squareSize, squareSize);
+      }
+    }
+  </script>
+</body>
+</html>
