@@ -36,41 +36,46 @@
 
     <script>
         function findAllOccurrences(text, search) {
-            let positions = [];
+            const positions = [];
+            const searchLength = search.length;
             let pos = text.indexOf(search);
             while (pos !== -1) {
                 positions.push(pos);
-                pos = text.indexOf(search, pos + 1);
+                pos = text.indexOf(search, pos + searchLength);
             }
             return positions;
         }
 
         // Get input from user
-        let text = prompt("Enter the text to search in:", "бредуть бобри в сирі бори. бобри хоробрі, а для бобрят добрі");
-        let search = prompt("Enter the search term:", "ри");
+        const text = prompt("Enter the text to search in:", "параллелограм");
+        const search = prompt("Enter the search term:", "л");
 
-        // Find all positions
-        let positions = findAllOccurrences(text, search);
+        if (!text || !search || search.length === 0) {
+            document.getElementById("output").innerHTML = "<p>Please provide valid input.</p>";
+        } else {
+            // Find all positions
+            const positions = findAllOccurrences(text, search);
 
-        // Highlight text
-        let highlightedText = "";
-        let lastIndex = 0;
+            // Highlight text
+            let highlightedText = "";
+            let lastIndex = 0;
 
-        for (let pos of positions) {
-            highlightedText += text.substring(lastIndex, pos);
-            highlightedText += `<span class="highlight">${text.substring(pos, pos + search.length)}</span>`;
-            lastIndex = pos + search.length;
+            for (let pos of positions) {
+                highlightedText += text.substring(lastIndex, pos);
+                highlightedText += `<span class="highlight">${text.substring(pos, pos + search.length)}</span>`;
+                lastIndex = pos + search.length;
+            }
+            highlightedText += text.substring(lastIndex);
+
+            // Output result in the centered container
+            const output = document.getElementById("output");
+            output.innerHTML = `
+                <p><strong>Original text with highlights:</strong></p>
+                <p>${highlightedText}</p>
+                <p><strong>Found at position(s):</strong> ${positions.join(', ')}</p>
+                <p><strong>Total matches:</strong> ${positions.length}</p>
+            `;
         }
-        highlightedText += text.substring(lastIndex);
-
-        // Output result in the centered container
-        const output = document.getElementById("output");
-        output.innerHTML = `
-            <p><strong>Original text with highlights:</strong></p>
-            <p>${highlightedText}</p>
-            <p><strong>Found at position(s):</strong> ${positions.join(', ')}</p>
-            <p><strong>Total matches:</strong> ${positions.length}</p>
-        `;
     </script>
 </body>
 
