@@ -1,197 +1,130 @@
 <!DOCTYPE html>
 <html lang="en">
-
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Final Work</title>
-    <style>
-        body {
-            background: linear-gradient(to bottom, #1e1e2f, #2c3e50);
-            margin: 0;
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            height: 100vh;
-            flex-direction: column;
-        }
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Final Work</title>
+  <style>
+    body {
+      background: linear-gradient(to bottom, #1e1e2f, #2c3e50);
+      margin: 0;
+      font-family: Arial, sans-serif;
+      color: white;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      padding: 20px;
+    }
 
-        .title {
-            color: white;
-            font-family: Arial, sans-serif;
-            margin-bottom: 20px;
-            text-align: center;
-        }
+    header, main {
+      width: 100%;
+      max-width: 1200px;
+      text-align: center;
+    }
 
-.buttons-container {
-    display: flex;
-    gap: 15px;
-    flex-wrap: wrap;
-}
+    .profile {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+      align-items: center;
+      gap: 20px;
+      margin: 20px 0;
+    }
 
-.button-56 {
-    align-items: center;
-    background-color: #fee6e3;
-    border: 2px solid #111;
-    border-radius: 8px;
-    box-sizing: border-box;
-    color: #111;
-    cursor: pointer;
-    display: flex;
-    font-family: Inter, sans-serif;
-    font-size: 16px;
-    height: 100px;
-    justify-content: center;
-    line-height: 24px;
-    max-width: 100%;
-    padding: 0 25px;
-    position: relative;
-    text-align: center;
-    text-decoration: none;
-    user-select: none;
-    -webkit-user-select: none;
-    touch-action: manipulation;
-    width: 200px; /* optional, controls button width */
-}
+    .profile img {
+      width: 250px;
+      height: auto;
+      border-radius: 12px;
+    }
 
-        .button-56:after {
-            background-color: #111;
-            border-radius: 8px;
-            content: "";
-            display: block;
-            height: 105px;
-            left: 0;
-            width: 100%;
-            position: absolute;
-            top: -2px;
-            transform: translate(8px, 8px);
-            transition: transform .2s ease-out;
-            z-index: -1;
-        }
+    .info_text {
+      font-size: 20px;
+      max-width: 500px;
+    }
 
-        .button-56:hover:after {
-            transform: translate(0, 0);
-        }
+    .buttons-container {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+      gap: 15px;
+      margin-top: 30px;
+    }
 
-        .button-56:active {
-            background-color: #ffdeda;
-            outline: 0;
-        }
+    .button-56 {
+      background-color: #fee6e3;
+      border: 2px solid #111;
+      border-radius: 8px;
+      color: #111;
+      cursor: pointer;
+      padding: 20px;
+      width: 100%;
+      max-width: 200px;
+      position: relative;
+      text-align: center;
+      font-size: 16px;
+      line-height: 24px;
+    }
 
-        .button-56:hover {
-            outline: 0;
-        }
+    .button-56:after {
+      content: "";
+      position: absolute;
+      top: -2px;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background-color: #111;
+      border-radius: 8px;
+      transform: translate(8px, 8px);
+      z-index: -1;
+      transition: transform 0.2s ease-out;
+    }
 
-        @media (min-width: 768px) {
-            .button-56 {
-                padding: 0 40px;
-            }
-        }
+    .button-56:hover:after {
+      transform: translate(0, 0);
+    }
 
-        img {
-            width: 40%;
-            height:20%
-        }
-
-        .info {
-            width: 40%;
-            float: left;
-            margin-left: 50px
-        }
-
-        .container {
-            width: 100%;
-        }
-
-        .info_text {
-            color: white;
-            font-family: Arial, Helvetica, sans-serif;
-            font-size: 40px;
-        }
-    </style>
+    @media (max-width: 768px) {
+      .info_text {
+        font-size: 16px;
+        text-align: center;
+      }
+    }
+  </style>
 </head>
-
 <body>
-    <div class="container">
-        <h1 class="title">Final work of Oleksandr Pelykh</h1>
-        <div class="info">
-            <img src="my photo.jpg" alt="My photo">
-        </div>
-        <div class="info">
-            <p class="info_text">Hello, I'm Oleksandr Pelykh, and I'm 14 years old. I like to play computer games, riding public transport, and a bit of programming. I was born and I live in Kyiv. I studied many programming languages like JavaScript, HTML, CSS, Python and C#. I was programming since I was 10</p>
-        </div>
-    </div>
-    <h1 class="title">My works</h1>
+  <header>
+    <h1>Final work of Oleksandr Pelykh</h1>
+  </header>
+
+  <main>
+    <section class="profile">
+      <img src="my photo.jpg" alt="Portrait of Oleksandr Pelykh" />
+      <p class="info_text">
+        Hello, I'm Oleksandr Pelykh, and I'm 14 years old. I like to play computer games, ride public transport, and do a bit of programming. I live in Kyiv. I've studied many programming languages like JavaScript, HTML, CSS, Python, and C#. I’ve been programming since I was 10.
+      </p>
+    </section>
+
+    <h2>My Works</h2>
     <div class="buttons-container">
-        <button class="button-56" id="fibonacci_button" role="button">🔢Fibonacci</button>
-        <button class="button-56" id="power_button" role="button">💪Powers</button>
-        <button class="button-56" id="alphabet_button" role="button">🔠Alphabet</button>
-        <button class="button-56" id="number_guess_button" role="button">❓Number guesser</button>
-        <button class="button-56" id="array_button" role="button">😃Compliments</button>
-        <button class="button-56" id="hello_button" role="button">👋Recursive function that prints hello</button>
-        <button class="button-56" id="count_button" role="button">🔄Count</button>
-        <button class="button-56" id="dizzy_button" role="button">💫Hello world (just don't click it)</button>
-        <button class="button-56" id="figures_button" role="button">🟥🔵📐Figures spinning</button>
-        <button class="button-56" id="pattern_button" role="button">⚫⚫⚫⚫⚫⚫⚫Circle pattern</button>
-        <button class="button-56" id="chess_button" role="button">♟Chess board</button>
-        <button class="button-56" id="search_button" role="button">🔎Search for text</button>
+      <button class="button-56" onclick="openPage('fib.html')">🔢 Fibonacci</button>
+      <button class="button-56" onclick="openPage('power.html')">💪 Powers</button>
+      <button class="button-56" onclick="openPage('alphabet.html')">🔠 Alphabet</button>
+      <button class="button-56" onclick="openPage('min max.html')">❓ Number Guesser</button>
+      <button class="button-56" onclick="openPage('arrays.html')">😃 Compliments</button>
+      <button class="button-56" onclick="openPage('hello.html')">👋 Hello Recursion</button>
+      <button class="button-56" onclick="openPage('count.html')">🔄 Count</button>
+      <button class="button-56" onclick="openPage('spinning newspaper.html')">💫 Hello World (Don’t Click)</button>
+      <button class="button-56" onclick="openPage('circletrianglesquare.html')">🟥🔵📐 Spinning Figures</button>
+      <button class="button-56" onclick="openPage('pattern.html')">⚫⚫⚫⚫⚫⚫⚫ Circle Pattern</button>
+      <button class="button-56" onclick="openPage('chess.html')">♟ Chess Board</button>
+      <button class="button-56" onclick="openPage('function.html')">🔎 Text Search</button>
     </div>
-    <script>
-        const fibonacci_button = document.getElementById("fibonacci_button");
-        fibonacci_button.addEventListener("click", function () {
-            window.location.href = "fib.html", "_blank";
-        });
-        const power_button = document.getElementById("power_button");
-        power_button.addEventListener("click", function () {
-            window.location.href = "power.html", "_blank";
-        });
-        const number_guess_button = document.getElementById("number_guess_button");
-        number_guess_button.addEventListener("click", function () {
-            window.location.href = "min max.html", "_blank";
-        });
-        const array_button = document.getElementById("array_button");
-        array_button.addEventListener("click", function () {
-            window.location.href = "arrays.html", "_blank";
-        });
-        const hello_button = document.getElementById("hello_button");
-        hello_button.addEventListener("click", function () {
-            window.location.href = "hello.html", "_blank";
-        });
-        const count_button = document.getElementById("count_button");
-        count_button.addEventListener("click", function () {
-            window.location.href = "count.html", "_blank";
-        });
+  </main>
 
-        const dizzy_button = document.getElementById("dizzy_button");
-        dizzy_button.addEventListener("click", function () {
-            window.location.href = "spinning newspaper.html", "_blank";
-        });
-
-        const figure_button = document.getElementById("figures_button");
-        figure_button.addEventListener("click", function () {
-            window.location.href = "circletrianglesquare.html", "_blank";
-        });
-
-        const pattern_button = document.getElementById("pattern_button");
-        pattern_button.addEventListener("click", function () {
-            window.location.href = "pattern.html", "_blank";
-        });
-
-        const alphabet_button = document.getElementById("alphabet_button");
-        alphabet_button.addEventListener("click", function () {
-        window.location.href = "alphabet.html", "_blank";
-        });
-        
-        const chess_button = document.getElementById("chess_button");
-        chess_button.addEventListener("click", function () {
-        window.location.href = "chess.html", "_blank";
-        });
-
-        const search_button = document.getElementById("search_button");
-        search_button.addEventListener("click", function () {
-        window.location.href = "function.html", "_blank";
-        });
-    </script>
+  <script>
+    function openPage(url) {
+      window.open(url, '_blank');
+    }
+  </script>
 </body>
-
 </html>
