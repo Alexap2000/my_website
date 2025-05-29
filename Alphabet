@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Alphabet</title>
+</head>
+
+<body>
+    <script>
+
+        function searchLetterInAlphabets() {
+            let letter = prompt("Enter a letter to search in Ukrainian and English alphabets:");
+
+            if (!letter || letter.length !== 1) {
+                alert("Please enter exactly one letter.");
+                return;
+            }
+
+            // Normalize letter to lowercase
+            let letterLower = letter.toLowerCase();
+
+            // Create lowercase versions of alphabets (just the lowercase part)
+            const alphabetUALower = alphabetUA.slice(32).map(l => l.toLowerCase());
+            const alphabetENLower = alphabetEN.slice(26).map(l => l.toLowerCase());
+
+            let posUALower = alphabetUALower.indexOf(letterLower);
+            let posENLower = alphabetENLower.indexOf(letterLower);
+
+            let message = "";
+
+            if (posUALower !== -1) {
+                // Add 1 for 1-based index, and add 32 to get original alphabetUA index (starting lowercase letters)
+                message += `Letter "${letter}" found in Ukrainian alphabet at position: ${posUALower + 33}\n`;
+            } else {
+                message += `Letter "${letter}" is not in the Ukrainian alphabet, you cancelled the operation or it's not a letter.\n`;
+            }
+
+            if (posENLower !== -1) {
+                // Similarly add 1 for position in lowercase block
+                message += `Letter "${letter}" found in English alphabet at position: ${posENLower + 27}`;
+            } else {
+                message += `Letter "${letter}" is not in the English alphabet, you cancelled the operation or it's not a letter.`;
+            }
+
+            alert(message);
+        }
+        searchLetterInAlphabets();
+    </script>
+</body>
+
+</html>
