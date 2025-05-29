@@ -4,43 +4,43 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <title>Number guessing name</title>
 </head>
 
 <body>
     <script>
-        let min = +(prompt("Введіть мінімальне число:"));
-        let max = +(prompt("Введіть максимальне число:"));
+        let min = +(prompt("Enter minimum number"));
+        let max = +(prompt("Enter maximum number"));
         if (min > max) [min, max] = [max, min];
 
         let secretNumber = Math.floor(Math.random() * (max - min + 1)) + min;
         let attempts = 10;
         if (isNaN(min) || isNaN(max)) {
-            alert(`Це не число. Ви ввели ${min}, ${max}. Будь ласка, оновіть сторінку і зіграйте знову.`)
+            alert(`It's not a number. You entered ${min}, ${max}. Please, update the page and try again.`)
         } else if(min === undefined){
-            alert(`Ви вводите неправильні дані або відмініли. Ви ввели ${min}, ${max}. Будь ласка, оновіть сторінку і зіграйте знову.`)
+            alert(`You entered an invalid value or cancelled. You entered ${min}, ${max}. Please, update the page and try again.`)
         } else if(max === undefined){
-            alert(`Ви вводите неправильні дані або відмініли. Ви ввели ${min}, ${max}. Будь ласка, оновіть сторінку і зіграйте знову.`)
+            alert(`You entered an invalid value or cancelled. You entered ${min}, ${max}. Please, update the page and try again.`)
         } else if(min === null){
-            alert(`Ви вводите неправильні дані або відмініли. Ви ввели ${min}, ${max}. Будь ласка, оновіть сторінку і зіграйте знову.`)
+            alert(`You entered an invalid value or cancelled. You entered ${min}, ${max}. Please, update the page and try again.`)
         } else if(max === null){
-           alert(`Ви вводите неправильні дані або відмініли. Ви ввели ${min}, ${max}. Будь ласка, оновіть сторінку і зіграйте знову.`) 
+           alert(`You entered an invalid value or cancelled. You entered ${min}, ${max}. Please, update the page and try again.`) 
         }
         else {
-            alert(`Загадане число в діапазоні від ${min} до ${max}. У вас є ${attempts} спроб.`);
+            alert(`Number in range of ${min} to ${max}. You have ${attempts} attempts.`);
             for (let i = 0; i <= attempts; i++) {
-                let userGuess = parseInt(prompt(`Спроба ${i + 1}: Введіть число:`));
+                let userGuess = parseInt(prompt(`Attempt ${i + 1}: Enter the number:`));
                 if (userGuess === secretNumber) {
-                    alert("Вітаємо! Ви вгадали число!");
+                    alert("Congratulations! You guessed it!");
                     break;
                 } else if (userGuess > secretNumber) {
-                    alert("Загадане число менше.");
+                    alert("The number is smaller.");
                 } else if (userGuess < secretNumber) {
-                    alert("Загадане число більше.");
+                    alert("The number is bigger.");
                 } else if (i === attempts) {
-                    alert(`Ви вичерпали спроби. Загадане число було ${secretNumber}. Хай щастить наступного разу!`);
+                    alert(`You ran out of attempts. The number was ${secretNumber}. Good luck next time`);
                 } else{
-                    alert("Щось пішло не так. Оновіть сторінку і зіграйте знову.")
+                    alert("Something went wrong. Try to update the page or check the value you entered. You must enter exactly a number")
                 }
             }
         }
@@ -53,8 +53,8 @@
         let extraNum2 = Math.floor(Math.random() * (num2 - num1 + 1)) + num1;
         let extraNum3 = Math.floor(Math.random() * (num2 - num1 + 1)) + num1;
 
-        alert(`Два випадкових числа: ${num1}, ${num2}`);
-        alert(`Три випадкових числа в цьому діапазоні: ${extraNum1}, ${extraNum2}, ${extraNum3}`);
+        alert(`Two random numbers: ${num1}, ${num2}`);
+        alert(`Three random numbers in this range: ${extraNum1}, ${extraNum2}, ${extraNum3}`);
 
     </script>
 </body>
