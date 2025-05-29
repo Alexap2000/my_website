@@ -59,7 +59,15 @@ let count = parseInt(prompt("How many compliments would you like?"));
 
 if (!isNaN(count) && count > 0) {
   for (let i = 0; i < Math.min(count, combinations.length); i++) {
-    document.write(combinations[i] + "<br>");
+    let container = document.createElement("div");
+document.body.appendChild(container);
+
+for (let i = 0; i < Math.min(count, combinations.length); i++) {
+  let p = document.createElement("p");
+  p.textContent = combinations[i];
+  container.appendChild(p);
+}
+
   }
 } else {
   alert("Please enter a valid number greater than 0."); 
