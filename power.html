@@ -4,7 +4,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <title>Powers</title>
 </head>
 
 <body>
@@ -21,14 +21,6 @@
         let num1 = +prompt("Enter the first number", 1)
         let num2 = +prompt("Enter the second number", 2)
         compare(num1, num2)
-        let alphabetUA = [
-            'А', 'Б', 'В', 'Г', 'Д', 'Е', 'Є', 'Ж', 'З', 'И', 'І', 'Ї', 'Й', 'К', 'Л', 'М', 'Н', 'О', 'П', 'Р', 'С', 'Т', 'У', 'Ф', 'Х', 'Ц', 'Ч', 'Ш', 'Щ', 'Ь', 'Ю', 'Я', // великі літери
-            'а', 'б', 'в', 'г', 'д', 'е', 'є', 'ж', 'з', 'и', 'і', 'ї', 'й', 'к', 'л', 'м', 'н', 'о', 'п', 'р', 'с', 'т', 'у', 'ф', 'х', 'ц', 'ч', 'ш', 'щ', 'ь', 'ю', 'я'  // малі літери
-        ];
-        const alphabetEN = [
-            'A', 'B', 'C', 'D', 'E', 'F', 'G', 'H', 'I', 'J', 'K', 'L', 'M', 'N', 'O', 'P', 'Q', 'R', 'S', 'T', 'U', 'V', 'W', 'X', 'Y', 'Z', // великі літери
-            'a', 'b', 'c', 'd', 'e', 'f', 'g', 'h', 'i', 'j', 'k', 'l', 'm', 'n', 'o', 'p', 'q', 'r', 's', 't', 'u', 'v', 'w', 'x', 'y', 'z'  // малі літери
-        ];
         function pow(base, exponent) {
             if (exponent == 0) {
                 return 1;  // Any number raised to the power of 0 is 1
@@ -44,24 +36,7 @@
         // Calculate and display the result
         let result = pow(base, exponent);
         alert(`${base} raised to the power of ${exponent} is: ${result}`);
-        function searchUA() {
-            let searchTerm = prompt("Enter Ukrainian letter");
-            if (alphabetUA.includes(searchTerm)) {
-                alert("This letter is present in Ukrainian alphabet");
-            } else {
-                alert("This letter is not present in Ukrainian alphabet, you cancelled or ignored the operation, or it's not a letter");
-            }
-        }
-        searchUA()
-        function searchEN() {
-            let searchTerm = prompt("Enter English letter");
-            if (alphabetEN.includes(searchTerm)) {
-                alert("This letter is present in English alphabet");
-            } else {
-                alert("This letter is not present in English alphabet, you cancelled or ignored the operation, or it's not a letter");
-            }
-        }
-        searchEN()
+    
     </script>
 </body>
 
