@@ -3,11 +3,37 @@
 
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <title>Highlight Search Term</title>
+    <style>
+        body {
+            margin: 0;
+            padding: 0;
+        }
+
+        .center {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            min-height: 100vh;
+            text-align: center;
+        }
+
+        .highlight {
+            background-color: yellow;
+            font-weight: bold;
+        }
+
+        p,
+        strong {
+            font-family: Arial, Helvetica, sans-serif;
+        }
+    </style>
 </head>
 
 <body>
+    <div class="center" id="output"></div>
+
     <script>
         function findAllOccurrences(text, search) {
             let positions = [];
@@ -19,9 +45,32 @@
             return positions;
         }
 
-        let text = "бредуть бобри в сирі бори. бобри хоробрі, а для бобрят добрі";
-        let search = "ри";
-        document.writeln(findAllOccurrences(text, search));
+        // Get input from user
+        let text = prompt("Enter the text to search in:", "бредуть бобри в сирі бори. бобри хоробрі, а для бобрят добрі");
+        let search = prompt("Enter the search term:", "ри");
+
+        // Find all positions
+        let positions = findAllOccurrences(text, search);
+
+        // Highlight text
+        let highlightedText = "";
+        let lastIndex = 0;
+
+        for (let pos of positions) {
+            highlightedText += text.substring(lastIndex, pos);
+            highlightedText += `<span class="highlight">${text.substring(pos, pos + search.length)}</span>`;
+            lastIndex = pos + search.length;
+        }
+        highlightedText += text.substring(lastIndex);
+
+        // Output result in the centered container
+        const output = document.getElementById("output");
+        output.innerHTML = `
+            <p><strong>Original text with highlights:</strong></p>
+            <p>${highlightedText}</p>
+            <p><strong>Found at position(s):</strong> ${positions.join(', ')}</p>
+            <p><strong>Total matches:</strong> ${positions.length}</p>
+        `;
     </script>
 </body>
 
