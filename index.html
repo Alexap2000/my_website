@@ -124,9 +124,10 @@
     <h1 class="title">My works</h1>
     <div class="buttons-container">
         <button class="button-56" id="fibonacci_button" role="button">🔢Fibonacci</button>
-        <button class="button-56" id="power_button" role="button">🔠Powers and alphabet</button>
+        <button class="button-56" id="power_button" role="button">💪Powers</button>
+        <button class="button-56" id="alphabet_button" role="button">🔠Alphabet</button>
         <button class="button-56" id="number_guess_button" role="button">❓Number guesser</button>
-        <button class="button-56" id="array_button" role="button">😃Compliments and arrays</button>
+        <button class="button-56" id="array_button" role="button">😃Compliments</button>
         <button class="button-56" id="hello_button" role="button">👋Recursive function that prints hello</button>
         <button class="button-56" id="count_button" role="button">🔄Count</button>
         <button class="button-56" id="dizzy_button" role="button">💫Hello world (just don't click it)</button>
@@ -142,6 +143,10 @@
         const power_button = document.getElementById("power_button");
         power_button.addEventListener("click", function () {
             window.location.href = "power.html", "_blank";
+        })
+        const power_button = document.getElementById("alphabet_button");
+        alphabet_button.addEventListener("click", function () {
+            window.location.href = "alphabet.html", "_blank";
         });
         const number_guess_button = document.getElementById("number_guess_button");
         number_guess_button.addEventListener("click", function () {
@@ -176,7 +181,7 @@
         });
 
         const chess_button = document.getElementById("chess_button");
-        pattern_button.addEventListener("click", function () {
+        chess_button.addEventListener("click", function () {
         window.location.href = "chess.html", "_blank";
         });
     </script>
