@@ -1,0 +1,14 @@
+// Prompt user for the symbol
+const symbol = prompt("Enter the symbol to build the tree with:");
+
+// Define the number of rows for the tree
+const rows = 5;
+
+// Build the tree
+let tree = "";
+for (let i = 1; i <= rows; i++) {
+  tree += symbol.repeat(i) + "\n";
+}
+
+// Output the tree to the console
+console.log(tree);
