@@ -9,6 +9,16 @@
 
 <body>
     <script>
+        // Define full Ukrainian and English alphabets
+        const alphabetUA = [
+            'А', 'Б', 'В', 'Г', 'Ґ', 'Д', 'Е', 'Є', 'Ж', 'З', 'И', 'І', 'Ї', 'Й',
+            'К', 'Л', 'М', 'Н', 'О', 'П', 'Р', 'С', 'Т', 'У', 'Ф', 'Х', 'Ц', 'Ч',
+            'Ш', 'Щ', 'Ь', 'Ю', 'Я'
+        ];
+        const alphabetEN = [
+            'A', 'B', 'C', 'D', 'E', 'F', 'G', 'H', 'I', 'J', 'K', 'L', 'M',
+            'N', 'O', 'P', 'Q', 'R', 'S', 'T', 'U', 'V', 'W', 'X', 'Y', 'Z'
+        ];
 
         function searchLetterInAlphabets() {
             let letter = prompt("Enter a letter to search in Ukrainian and English alphabets:");
@@ -21,9 +31,9 @@
             // Normalize letter to lowercase
             let letterLower = letter.toLowerCase();
 
-            // Create lowercase versions of alphabets (just the lowercase part)
-            const alphabetUALower = alphabetUA.slice(32).map(l => l.toLowerCase());
-            const alphabetENLower = alphabetEN.slice(26).map(l => l.toLowerCase());
+            // Convert alphabets to lowercase for comparison
+            const alphabetUALower = alphabetUA.map(l => l.toLowerCase());
+            const alphabetENLower = alphabetEN.map(l => l.toLowerCase());
 
             let posUALower = alphabetUALower.indexOf(letterLower);
             let posENLower = alphabetENLower.indexOf(letterLower);
@@ -31,21 +41,20 @@
             let message = "";
 
             if (posUALower !== -1) {
-                // Add 1 for 1-based index, and add 32 to get original alphabetUA index (starting lowercase letters)
-                message += `Letter "${letter}" found in Ukrainian alphabet at position: ${posUALower + 33}\n`;
+                message += `Letter "${letter}" found in Ukrainian alphabet at position: ${posUALower + 1}\n`;
             } else {
-                message += `Letter "${letter}" is not in the Ukrainian alphabet, you cancelled the operation or it's not a letter.\n`;
+                message += `Letter "${letter}" is not in the Ukrainian alphabet.\n`;
             }
 
             if (posENLower !== -1) {
-                // Similarly add 1 for position in lowercase block
-                message += `Letter "${letter}" found in English alphabet at position: ${posENLower + 27}`;
+                message += `Letter "${letter}" found in English alphabet at position: ${posENLower + 1}`;
             } else {
-                message += `Letter "${letter}" is not in the English alphabet, you cancelled the operation or it's not a letter.`;
+                message += `Letter "${letter}" is not in the English alphabet.`;
             }
 
             alert(message);
         }
+
         searchLetterInAlphabets();
     </script>
 </body>
