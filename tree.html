@@ -1,14 +1,40 @@
-// Prompt user for the symbol
-const symbol = prompt("Enter the symbol to build the tree with:");
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Symbol Tree</title>
+</head>
+<body>
 
-// Define the number of rows for the tree
-const rows = 5;
+  <pre id="tree-output"></pre>
 
-// Build the tree
-let tree = "";
-for (let i = 1; i <= rows; i++) {
-  tree += symbol.repeat(i) + "\n";
-}
+  <script>
+    // Prompt for symbol
+    const symbol = prompt("Enter the symbol to build the tree with:");
 
-// Output the tree to the console
-console.log(tree);
+    if (!symbol || symbol.length === 0) {
+      alert("Please enter a valid symbol.");
+    } else {
+      // Prompt for number of rows
+      let rows = prompt("Enter the number of rows:");
+      rows = parseInt(rows);
+
+      if (isNaN(rows) || rows <= 0) {
+        alert("Please enter a valid number of rows.");
+      } else {
+        let tree = "";
+        for (let i = 1; i <= rows; i++) {
+          tree += symbol.repeat(i) + "\n";
+        }
+
+        // Output to console
+        console.log(tree);
+
+        // Also output to the webpage
+        document.getElementById("tree-output").textContent = tree;
+      }
+    }
+  </script>
+
+</body>
+</html>
